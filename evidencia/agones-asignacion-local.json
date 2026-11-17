@@ -1,0 +1,158 @@
+{
+  "resultado": "PASS",
+  "fecha_utc": "2026-11-17T03:08:51.871754+00:00",
+  "descripcion": "Verificación local de ciclo de vida Agones (Scheduled -> Ready -> Allocated -> Shutdown) y asignación de 20 jugadores en 3 GameServers (2 Allocated con 10 CCU c/u + 1 Ready en buffer).",
+  "ccu_durante_partida": {
+    "nebula-fleet-gs1": 10.0,
+    "nebula-fleet-gs2": 10.0,
+    "nebula-fleet-gs3": 0.0
+  },
+  "rtt_ping_promedio_ms": 0.406,
+  "rtt_ping_max_ms": 1.5,
+  "estado_final_gameservers": {
+    "nebula-fleet-gs1": {
+      "state": "Shutdown",
+      "health_heartbeats": 2,
+      "events": [
+        {
+          "t": "2026-11-17T03:08:50.303769+00:00",
+          "event": "Ready"
+        },
+        {
+          "t": "2026-11-17T03:08:51.161934+00:00",
+          "event": "Allocated"
+        },
+        {
+          "t": "2026-11-17T03:08:51.356023+00:00",
+          "event": "Shutdown"
+        }
+      ]
+    },
+    "nebula-fleet-gs2": {
+      "state": "Shutdown",
+      "health_heartbeats": 2,
+      "events": [
+        {
+          "t": "2026-11-17T03:08:50.809884+00:00",
+          "event": "Ready"
+        },
+        {
+          "t": "2026-11-17T03:08:51.161934+00:00",
+          "event": "Allocated"
+        },
+        {
+          "t": "2026-11-17T03:08:51.842801+00:00",
+          "event": "Shutdown"
+        }
+      ]
+    },
+    "nebula-fleet-gs3": {
+      "state": "Ready",
+      "health_heartbeats": 1,
+      "events": [
+        {
+          "t": "2026-11-17T03:08:51.110682+00:00",
+          "event": "Ready"
+        }
+      ]
+    }
+  },
+  "historial_transiciones": [
+    {
+      "timestamp": "2026-11-17T03:08:49.370811+00:00",
+      "motivo": "Inicio de flota (3 réplicas Scheduled)",
+      "ready": 0,
+      "allocated": 0,
+      "shutdown": 0,
+      "gameservers": {
+        "nebula-fleet-gs1": "Scheduled",
+        "nebula-fleet-gs2": "Scheduled",
+        "nebula-fleet-gs3": "Scheduled"
+      }
+    },
+    {
+      "timestamp": "2026-11-17T03:08:50.303769+00:00",
+      "motivo": "nebula-fleet-gs1 -> Ready",
+      "ready": 1,
+      "allocated": 0,
+      "shutdown": 0,
+      "gameservers": {
+        "nebula-fleet-gs1": "Ready",
+        "nebula-fleet-gs2": "Scheduled",
+        "nebula-fleet-gs3": "Scheduled"
+      }
+    },
+    {
+      "timestamp": "2026-11-17T03:08:50.809884+00:00",
+      "motivo": "nebula-fleet-gs2 -> Ready",
+      "ready": 2,
+      "allocated": 0,
+      "shutdown": 0,
+      "gameservers": {
+        "nebula-fleet-gs1": "Ready",
+        "nebula-fleet-gs2": "Ready",
+        "nebula-fleet-gs3": "Scheduled"
+      }
+    },
+    {
+      "timestamp": "2026-11-17T03:08:51.111287+00:00",
+      "motivo": "nebula-fleet-gs3 -> Ready",
+      "ready": 3,
+      "allocated": 0,
+      "shutdown": 0,
+      "gameservers": {
+        "nebula-fleet-gs1": "Ready",
+        "nebula-fleet-gs2": "Ready",
+        "nebula-fleet-gs3": "Ready"
+      }
+    },
+    {
+      "timestamp": "2026-11-17T03:08:51.161934+00:00",
+      "motivo": "nebula-fleet-gs1 -> Allocated",
+      "ready": 2,
+      "allocated": 1,
+      "shutdown": 0,
+      "gameservers": {
+        "nebula-fleet-gs1": "Allocated",
+        "nebula-fleet-gs2": "Ready",
+        "nebula-fleet-gs3": "Ready"
+      }
+    },
+    {
+      "timestamp": "2026-11-17T03:08:51.161934+00:00",
+      "motivo": "nebula-fleet-gs2 -> Allocated",
+      "ready": 1,
+      "allocated": 2,
+      "shutdown": 0,
+      "gameservers": {
+        "nebula-fleet-gs1": "Allocated",
+        "nebula-fleet-gs2": "Allocated",
+        "nebula-fleet-gs3": "Ready"
+      }
+    },
+    {
+      "timestamp": "2026-11-17T03:08:51.356023+00:00",
+      "motivo": "nebula-fleet-gs1 -> Shutdown",
+      "ready": 1,
+      "allocated": 1,
+      "shutdown": 1,
+      "gameservers": {
+        "nebula-fleet-gs1": "Shutdown",
+        "nebula-fleet-gs2": "Allocated",
+        "nebula-fleet-gs3": "Ready"
+      }
+    },
+    {
+      "timestamp": "2026-11-17T03:08:51.842801+00:00",
+      "motivo": "nebula-fleet-gs2 -> Shutdown",
+      "ready": 1,
+      "allocated": 0,
+      "shutdown": 2,
+      "gameservers": {
+        "nebula-fleet-gs1": "Shutdown",
+        "nebula-fleet-gs2": "Shutdown",
+        "nebula-fleet-gs3": "Ready"
+      }
+    }
+  ]
+}

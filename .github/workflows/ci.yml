@@ -1,0 +1,35 @@
+name: nebula-server-ci
+on:
+  push:
+  pull_request:
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Instalar dependencias y ejecutar pruebas unitarias (server y serverless)
+        run: |
+          pip install -r server/requirements-dev.txt -r serverless/requirements.txt -r loadtest/requirements.txt
+          pytest server/test_server.py serverless/test_main.py -q
+      - name: Verificar ciclo de vida Agones y asignación de partidas
+        run: python server/verify_agones_allocation.py
+      - name: Construir imagen Docker y ejecutar smoke test
+        run: |
+          docker build -t nebula-server:${{ github.sha }} server
+          docker run -d --name nebula-smoke -p 7654:7654 -p 9100:9100 nebula-server:${{ github.sha }}
+          sleep 2
+          python server/smoke.py
+          docker rm -f nebula-smoke
+      - name: Validar Terraform (infra/)
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: '1.9.8'
+      - name: Terraform fmt y validate sin backend remoto
+        working-directory: infra
+        run: |
+          terraform fmt -check
+          terraform init -backend=false
+          terraform validate

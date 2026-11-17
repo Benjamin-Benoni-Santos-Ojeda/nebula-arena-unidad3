@@ -1,0 +1,1 @@
+PASS: POST /score, validacion y GET /top con Firestore simulado

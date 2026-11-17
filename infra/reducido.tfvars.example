@@ -1,0 +1,13 @@
+# Modo reducido por cuota del PDF (300 jugadores = 30 partidas + 20% buffer, 200 espectadores)
+# Copia a reducido.tfvars (ignorado por Git) y reemplaza con tus valores autorizados.
+proyecto            = "REEMPLAZAR_ID_PROYECTO_GCP"
+region              = "us-central1"
+tipo_maquina_juego  = "e2-standard-4"
+nodos_juego         = 1
+min_nodos_juego     = 1
+max_nodos_juego     = 3
+redes_juego         = ["10.128.0.0/20"] # Subred interna de us-central1 donde corre locust-gen
+instalar_agones     = true
+agones_version      = "1.44.0"
+instalar_monitoreo  = true
+crear_firestore     = false

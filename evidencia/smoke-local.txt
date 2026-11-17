@@ -1,0 +1,1 @@
+PASS: 10 conexiones, 11 rechazada, ping tras JSON nulo y métricas CCU/tick

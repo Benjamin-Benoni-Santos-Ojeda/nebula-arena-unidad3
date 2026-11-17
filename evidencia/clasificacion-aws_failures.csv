@@ -1,0 +1,3 @@
+Method,Name,Error,Occurrences,First Seen,Last Seen
+GET,/top,HTTPError('429 Client Error: Too Many Requests for url: /top'),14079,2026-11-17T04:04:10Z,2026-11-17T04:04:39Z
+POST,/score,HTTPError('429 Client Error: Too Many Requests for url: /score'),3599,2026-11-17T04:04:10Z,2026-11-17T04:04:38Z

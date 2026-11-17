@@ -1,0 +1,67 @@
+name: Publicar y actualizar Nebula Arena (AWS ECR + EKS)
+on:
+  workflow_dispatch:
+    inputs:
+      target_sha:
+        description: 'SHA de la imagen a desplegar (vacío usa el commit actual; indica un SHA previo para rollback)'
+        required: false
+        default: ''
+permissions:
+  contents: read
+jobs:
+  deploy-aws:
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    environment: nebula-aws
+    concurrency: nebula-aws
+    timeout-minutes: 25
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      AWS_REGION: ${{ vars.AWS_REGION || 'us-east-2' }}
+      EKS_CLUSTER: ${{ vars.EKS_CLUSTER || 'nebula-default' }}
+      NAMESPACE: ${{ vars.NEBULA_NAMESPACE || 'default' }}
+      DEPLOY_TAG: ${{ inputs.target_sha != '' && inputs.target_sha || github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Pruebas unitarias y verificación Agones
+        run: |
+          python -m pip install -r server/requirements-dev.txt -r serverless/requirements.txt
+          python -m pytest server/test_server.py serverless/test_main.py serverless/test_lambda.py -q
+          python server/verify_agones_allocation.py
+      - name: Autenticar en AWS mediante OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Iniciar sesión en Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+      - name: Construir, probar smoke test y publicar imagen por SHA en ECR
+        if: inputs.target_sha == ''
+        env:
+          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        run: |
+          IMAGE="$REGISTRY/nebula-server:${{ github.sha }}"
+          docker build -t "$IMAGE" server
+          docker run -d --name nebula-smoke -p 7654:7654 -p 9100:9100 "$IMAGE"
+          sleep 2
+          python server/smoke.py
+          docker rm -f nebula-smoke
+          docker push "$IMAGE"
+      - name: Actualizar Fleet en Amazon EKS (drenado seguro de partidas Allocated)
+        env:
+          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        run: |
+          IMAGE="$REGISTRY/nebula-server:$DEPLOY_TAG"
+          aws eks update-kubeconfig --region "$AWS_REGION" --name "$EKS_CLUSTER"
+          PREV_IMAGE=$(kubectl -n "$NAMESPACE" get fleet nebula-fleet -o jsonpath='{.spec.template.spec.template.spec.containers[0].image}')
+          echo "Imagen previa en Fleet (para rollback): $PREV_IMAGE"
+          patch=$(jq -cn --arg image "$IMAGE" '[{op:"test",path:"/spec/template/spec/template/spec/containers/0/name",value:"nebula"},{op:"replace",path:"/spec/template/spec/template/spec/containers/0/image",value:$image}]')
+          kubectl -n "$NAMESPACE" patch fleet nebula-fleet --type=json -p "$patch"
+          kubectl -n "$NAMESPACE" get fleet nebula-fleet
+          kubectl -n "$NAMESPACE" get gameservers

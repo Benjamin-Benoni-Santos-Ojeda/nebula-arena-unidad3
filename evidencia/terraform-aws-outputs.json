@@ -1,0 +1,27 @@
+﻿{
+  "bucket_stream": {
+    "sensitive": false,
+    "type": "string",
+    "value": "nebula-stream-140976191570-default"
+  },
+  "cluster": {
+    "sensitive": false,
+    "type": "string",
+    "value": "nebula-default"
+  },
+  "registro_ecr": {
+    "sensitive": false,
+    "type": "string",
+    "value": "140976191570.dkr.ecr.us-east-2.amazonaws.com/nebula-server"
+  },
+  "url_clasificacion": {
+    "sensitive": false,
+    "type": "string",
+    "value": "https://src4lpfrrkx2ab2eygu656xria0oxyhj.lambda-url.us-east-2.on.aws/"
+  },
+  "url_stream_base": {
+    "sensitive": false,
+    "type": "string",
+    "value": "https://nebula-stream-140976191570-default.s3.us-east-2.amazonaws.com"
+  }
+}

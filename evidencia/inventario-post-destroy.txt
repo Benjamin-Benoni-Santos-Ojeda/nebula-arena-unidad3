@@ -1,0 +1,26 @@
+﻿=== Auditoria de Recursos Post-Destroy en AWS (Cuenta 140976191570, us-east-2) ===
+Fecha UTC: 2026-11-17T05:02:20Z
+
+1. EKS Clusters (us-east-2):
+{
+    "clusters": []
+}
+2. EC2 Instances (running/pending/stopped en us-east-2):
+[]
+3. Load Balancers (ALB/NLB en us-east-2):
+[]
+4. Elastic IPs (us-east-2):
+[]
+5. EBS Volumes (us-east-2):
+[]
+6. ECR Repositories (us-east-2):
+[]
+7. Lambda Functions (us-east-2):
+[]
+8. DynamoDB Tables (us-east-2):
+{
+    "TableNames": []
+}
+9. S3 Buckets:
+
+RESULTADO: 0 recursos activos en toda la cuenta. Limpieza total verificada.

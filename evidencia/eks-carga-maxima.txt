@@ -1,0 +1,66 @@
+=== FLEET ===
+NAME           SCHEDULING   DESIRED   CURRENT   ALLOCATED   READY   AGE
+nebula-fleet   Packed       35        35        1           14      7m17s
+
+=== NODES ===
+NAME                                        STATUS   ROLES    AGE   VERSION                INTERNAL-IP   EXTERNAL-IP      OS-IMAGE                        KERNEL-VERSION                    CONTAINER-RUNTIME
+ip-10-42-1-11.us-east-2.compute.internal    Ready    <none>   14m   v1.30.14-eks-8f14419   10.42.1.11    3.144.17.45      Amazon Linux 2023.12.20260710   6.1.176-221.360.amzn2023.x86_64   containerd://2.2.4+unknown
+ip-10-42-1-126.us-east-2.compute.internal   Ready    <none>   14m   v1.30.14-eks-8f14419   10.42.1.126   3.144.255.229    Amazon Linux 2023.12.20260710   6.1.176-221.360.amzn2023.x86_64   containerd://2.2.4+unknown
+ip-10-42-2-138.us-east-2.compute.internal   Ready    <none>   74s   v1.30.14-eks-8f14419   10.42.2.138   18.118.115.166   Amazon Linux 2023.12.20260710   6.1.176-221.360.amzn2023.x86_64   containerd://2.2.4+unknown
+ip-10-42-2-73.us-east-2.compute.internal    Ready    <none>   14m   v1.30.14-eks-8f14419   10.42.2.73    18.117.155.201   Amazon Linux 2023.12.20260710   6.1.176-221.360.amzn2023.x86_64   containerd://2.2.4+unknown
+
+=== GAMESERVERS ===
+NAME                       STATE            ADDRESS                                              PORT   NODE                                        AGE
+nebula-fleet-5ztfz-2cfsq   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7354   ip-10-42-1-11.us-east-2.compute.internal    2m11s
+nebula-fleet-5ztfz-2m6n8   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7509   ip-10-42-1-11.us-east-2.compute.internal    2m11s
+nebula-fleet-5ztfz-45n2l   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7215   ip-10-42-1-11.us-east-2.compute.internal    41s
+nebula-fleet-5ztfz-4cp8g   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7963   ip-10-42-1-11.us-east-2.compute.internal    2m11s
+nebula-fleet-5ztfz-5jq9p   Creating                                                                                                                 1s
+nebula-fleet-5ztfz-5lwqd   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7345   ip-10-42-1-11.us-east-2.compute.internal    2m11s
+nebula-fleet-5ztfz-6l66n   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7165   ip-10-42-1-11.us-east-2.compute.internal    5m45s
+nebula-fleet-5ztfz-6t9bd   Creating                                                                                                                 1s
+nebula-fleet-5ztfz-7kc99   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7224   ip-10-42-1-11.us-east-2.compute.internal    41s
+nebula-fleet-5ztfz-8ffhg   Allocated        ec2-18-118-115-166.us-east-2.compute.amazonaws.com   7228   ip-10-42-2-138.us-east-2.compute.internal   11s
+nebula-fleet-5ztfz-98rbr   Ready            ec2-18-118-115-166.us-east-2.compute.amazonaws.com   7713   ip-10-42-2-138.us-east-2.compute.internal   11s
+nebula-fleet-5ztfz-9c5m5   Starting                                                                                                                 1s
+nebula-fleet-5ztfz-9pgfl   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7735   ip-10-42-1-11.us-east-2.compute.internal    2m11s
+nebula-fleet-5ztfz-dgjpx   Starting                                                                                                                 1s
+nebula-fleet-5ztfz-drzsl   Ready            ec2-18-118-115-166.us-east-2.compute.amazonaws.com   7029   ip-10-42-2-138.us-east-2.compute.internal   11s
+nebula-fleet-5ztfz-fbh69   Starting                                                                                                                 1s
+nebula-fleet-5ztfz-g6ffn   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7783   ip-10-42-1-11.us-east-2.compute.internal    5m45s
+nebula-fleet-5ztfz-gsgcc   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7664   ip-10-42-1-11.us-east-2.compute.internal    41s
+nebula-fleet-5ztfz-hcjqc   Shutdown         ec2-18-118-115-166.us-east-2.compute.amazonaws.com   7688   ip-10-42-2-138.us-east-2.compute.internal   41s
+nebula-fleet-5ztfz-jd6rp   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7464   ip-10-42-1-11.us-east-2.compute.internal    5m31s
+nebula-fleet-5ztfz-jdmvf   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7393   ip-10-42-1-11.us-east-2.compute.internal    41s
+nebula-fleet-5ztfz-jgtls   Ready            ec2-18-118-115-166.us-east-2.compute.amazonaws.com   7094   ip-10-42-2-138.us-east-2.compute.internal   11s
+nebula-fleet-5ztfz-k8xbr   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7247   ip-10-42-1-11.us-east-2.compute.internal    2m11s
+nebula-fleet-5ztfz-kf9wx   Creating                                                                                                                 1s
+nebula-fleet-5ztfz-klz69   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7847   ip-10-42-1-11.us-east-2.compute.internal    2m11s
+nebula-fleet-5ztfz-m5l4w   Ready            ec2-18-118-115-166.us-east-2.compute.amazonaws.com   7214   ip-10-42-2-138.us-east-2.compute.internal   11s
+nebula-fleet-5ztfz-mdkvd   Ready            ec2-18-118-115-166.us-east-2.compute.amazonaws.com   7135   ip-10-42-2-138.us-east-2.compute.internal   11s
+nebula-fleet-5ztfz-mhsdd   Ready            ec2-18-118-115-166.us-east-2.compute.amazonaws.com   7256   ip-10-42-2-138.us-east-2.compute.internal   11s
+nebula-fleet-5ztfz-mm8mk   RequestReady                                                                                                             2s
+nebula-fleet-5ztfz-mthjp   Ready            ec2-18-118-115-166.us-east-2.compute.amazonaws.com   7684   ip-10-42-2-138.us-east-2.compute.internal   11s
+nebula-fleet-5ztfz-nfzjt   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7078   ip-10-42-1-11.us-east-2.compute.internal    41s
+nebula-fleet-5ztfz-nrckr   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7067   ip-10-42-1-11.us-east-2.compute.internal    2m11s
+nebula-fleet-5ztfz-ns49q   Ready            ec2-18-118-115-166.us-east-2.compute.amazonaws.com   7933   ip-10-42-2-138.us-east-2.compute.internal   11s
+nebula-fleet-5ztfz-nsfmw   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7581   ip-10-42-1-11.us-east-2.compute.internal    41s
+nebula-fleet-5ztfz-ppr9t   PortAllocation                                                                                                           0s
+nebula-fleet-5ztfz-q4qn9   Creating                                                                                                                 1s
+nebula-fleet-5ztfz-qfb5m   Shutdown         ec2-18-118-115-166.us-east-2.compute.amazonaws.com   7157   ip-10-42-2-138.us-east-2.compute.internal   41s
+nebula-fleet-5ztfz-qhtlr   Shutdown         ec2-18-118-115-166.us-east-2.compute.amazonaws.com   7019   ip-10-42-2-138.us-east-2.compute.internal   41s
+nebula-fleet-5ztfz-qjvk4   Creating                                                                                                                 1s
+nebula-fleet-5ztfz-qk45k   Ready            ec2-18-118-115-166.us-east-2.compute.amazonaws.com   7558   ip-10-42-2-138.us-east-2.compute.internal   11s
+nebula-fleet-5ztfz-qxt9t   Creating                                                                                                                 1s
+nebula-fleet-5ztfz-r9524   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7423   ip-10-42-1-11.us-east-2.compute.internal    2m11s
+nebula-fleet-5ztfz-rnxmf   Creating                                                                                                                 1s
+nebula-fleet-5ztfz-s6wrj   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7389   ip-10-42-1-11.us-east-2.compute.internal    41s
+nebula-fleet-5ztfz-sn5td   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7144   ip-10-42-1-11.us-east-2.compute.internal    2m11s
+nebula-fleet-5ztfz-t6mf6   PortAllocation                                                                                                           0s
+nebula-fleet-5ztfz-vx9jk   Creating                                                                                                                 1s
+nebula-fleet-5ztfz-w2p69   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7589   ip-10-42-1-11.us-east-2.compute.internal    2m11s
+nebula-fleet-5ztfz-xhk2s   PortAllocation                                                                                                           0s
+nebula-fleet-5ztfz-zfhsn   Creating                                                                                                                 1s
+nebula-fleet-5ztfz-zmszt   Starting                                                                                                                 1s
+nebula-fleet-5ztfz-zsdqf   Shutdown         ec2-3-144-17-45.us-east-2.compute.amazonaws.com      7149   ip-10-42-1-11.us-east-2.compute.internal    2m11s
+

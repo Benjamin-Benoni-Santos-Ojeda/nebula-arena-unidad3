@@ -1,0 +1,38 @@
+﻿{
+    "imageDetails": [
+        {
+            "registryId": "140976191570",
+            "repositoryName": "nebula-server",
+            "imageDigest": "sha256:8faa3e6cf16bc0e84ff30f40029018eeb6a0897fa9cbda7938d08317f75736f2",
+            "imageSizeInBytes": 50134773,
+            "imagePushedAt": "2026-11-16T22:03:07.608000-06:00",
+            "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+            "artifactMediaType": "application/vnd.oci.image.config.v1+json",
+            "imageStatus": "ACTIVE"
+        },
+        {
+            "registryId": "140976191570",
+            "repositoryName": "nebula-server",
+            "imageDigest": "sha256:6e86a498e7b17475476b14f6efc6207577f4da778cfbe7533f2ce575822a60f4",
+            "imageSizeInBytes": 1098,
+            "imagePushedAt": "2026-11-16T22:03:07.611000-06:00",
+            "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+            "artifactMediaType": "application/vnd.docker.attestation.manifest.v1+json",
+            "subjectManifestDigest": "sha256:8faa3e6cf16bc0e84ff30f40029018eeb6a0897fa9cbda7938d08317f75736f2",
+            "imageStatus": "ACTIVE"
+        },
+        {
+            "registryId": "140976191570",
+            "repositoryName": "nebula-server",
+            "imageDigest": "sha256:ec2691499e979c51f01481e76608a0af408d3058b2204f12913a976f1e6b13ed",
+            "imageTags": [
+                "1.0",
+                "a1b2c3d"
+            ],
+            "imageSizeInBytes": 50134773,
+            "imagePushedAt": "2026-11-16T22:03:08-06:00",
+            "imageManifestMediaType": "application/vnd.oci.image.index.v1+json",
+            "imageStatus": "ACTIVE"
+        }
+    ]
+}

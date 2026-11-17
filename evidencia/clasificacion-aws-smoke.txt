@@ -1,0 +1,3 @@
+﻿URL: https://src4lpfrrkx2ab2eygu656xria0oxyhj.lambda-url.us-east-2.on.aws
+POST /score (ana=1250, benjamin=2500) -> {"ok":true,"ruta":"/score"}
+GET /top -> [{"jugador":"benjamin","puntos":2500},{"jugador":"ana","puntos":1250}]

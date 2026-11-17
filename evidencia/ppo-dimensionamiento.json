@@ -1,0 +1,82 @@
+{
+  "modelos_medidos": {
+    "cpu": {
+      "training_device": "cpu",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+      "torch": "2.12.0+cpu",
+      "seed": 42,
+      "actual_timesteps": 100352,
+      "training_seconds": 92.82022610027343,
+      "cpu_inference_mean_ms": 0.244078900013119,
+      "decisions_per_second_single_thread": 4097.035835323131,
+      "minimum_vcpu_2000_bots_at_10hz": 5,
+      "mean_reward_20_episodes": 500.0,
+      "reward_stddev": 0.0
+    }
+  },
+  "cuda_disponible_en_host_local": false,
+  "nota_cuda": "El host local Windows 11 cuenta con GPU integrada AMD Radeon 660M y PyTorch 2.12.0+cpu sin soporte CUDA. En CartPole-v1 (red MLP pequeña de 2 capas de 64 neuronas y 1 entorno secuencial), la sobrecarga de transferencia CPU↔GPU domina sobre el cómputo matricial, por lo que CPU suele igualar o superar a GPU en tiempo de entrenamiento.",
+  "dimensionamiento_2000_bots_10hz": {
+    "bots_activos": 2000,
+    "frecuencia_hz": 10,
+    "demanda_decisiones_por_segundo": 20000,
+    "latencia_media_inferencia_cpu_ms": 0.2441,
+    "decisiones_por_segundo_1_hilo": 4097.04,
+    "vcpu_exactas_requeridas": 4.882,
+    "vcpu_minimas_sin_margen": 5,
+    "margen_operativo_pct": 30,
+    "vcpu_con_margen_30pct": 7,
+    "vcpu_instancia_recomendada": 8,
+    "holgura_efectiva_en_8vcpu_pct": 63.9
+  },
+  "costos_estimados": {
+    "fecha_consulta": "2026-11-16",
+    "fuentes": [
+      "Google Cloud Compute Engine Pricing (us-central1)",
+      "AWS EC2 On-Demand & Spot Pricing (us-east-1)"
+    ],
+    "inferencia_cpu_8vcpu": [
+      {
+        "nube": "Google Cloud",
+        "region": "us-central1",
+        "instancia": "e2-standard-8 (8 vCPU, 32 GB)",
+        "vcpu": 8,
+        "usd_hora_ondemand": 0.268,
+        "usd_mes_730h": 195.64
+      },
+      {
+        "nube": "Google Cloud",
+        "region": "us-central1",
+        "instancia": "c3-highcpu-8 (8 vCPU, 16 GB, optimizada a cómputo)",
+        "vcpu": 8,
+        "usd_hora_ondemand": 0.3488,
+        "usd_mes_730h": 254.62
+      },
+      {
+        "nube": "AWS",
+        "region": "us-east-1",
+        "instancia": "c7i.2xlarge (8 vCPU, 16 GB, optimizada a cómputo)",
+        "vcpu": 8,
+        "usd_hora_ondemand": 0.357,
+        "usd_mes_730h": 260.61
+      }
+    ],
+    "entrenamiento_gpu": [
+      {
+        "nube": "Google Cloud",
+        "region": "us-central1",
+        "instancia": "g2-standard-4 (1x NVIDIA L4, 4 vCPU, 16 GB)",
+        "usd_hora_ondemand": 0.7066,
+        "usd_hora_spot_aprox": 0.2826
+      },
+      {
+        "nube": "AWS",
+        "region": "us-east-1",
+        "instancia": "g6.xlarge (1x NVIDIA L4, 4 vCPU, 16 GB)",
+        "usd_hora_ondemand": 0.8048,
+        "usd_hora_spot_aprox": 0.3219
+      }
+    ]
+  }
+}
